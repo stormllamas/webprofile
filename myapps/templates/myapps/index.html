@@ -28,81 +28,104 @@
 
 <!-- Apps -->
 <section id="listings" class="py-5">
-  <div class="container">
-    <h3 class="text-center mb-3">Please Take a Gander</h3><br>
-    <div class="row">
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card listing-preview">
-              <img class="card-img-top" src="/static/myapps/img/btress.jpg" alt="">
-              <div class="card-img-overlay">
-                <h2>
-                  <span class="badge badge-secondary text-white"></span>
-                </h2>
-              </div>
-              <div class="card-body">
-                <div class="listing-heading text-center">
-                  <h4 class="text-primary">Real Estate</h4>
-                  <p>Showcase all your listings</p>
-                </div>
-                <hr>
-                <div class="row py-2 text-info">
-                    <div class="col-12 text-center">
-                        <small>you'll be able to</small>
-                    </div>
-                </div>
-                <div class="row py-2 text-primary">
-                  <div class="col-12">
-                    <i class="fas fa-check text-success"></i> Access to all listing pictures</div>
-                  <div class="col-12">
-                    <i class="fas fa-check text-success"></i> Customer inquiry for each listing</div>
-                  <div class="col-12">
-                    <i class="fas fa-check text-success"></i> Email notifications for inquiries</div>
-                  <div class="col-12">
-                    <i class="fas fa-check text-success"></i> Filter your listings</div>
-                </div>
-                <hr>
-                <a href="{% url 'btre:index' %}" class="btn btn-success btn-block">More Info</a>
-              </div>
-            </div>
-          </div>
+  	<div class="container">
+    	<h3 class="text-center mb-5">Please Take a Look</h3>
+    	<div class="row">
+          	<div class="col-md-6 col-lg-4 mb-4">
+            	<div class="card listing-preview">
+              		<img class="card-img-top" src="/static/myapps/img/btress.jpg" alt="">
+              		<div class="card-img-overlay">
+						<h2>
+							<span class="badge badge-secondary text-white"></span>
+						</h2>
+          			</div>
+              		<div class="card-body">
+                		<div class="listing-heading text-center">
+                  			<h4 class="text-primary">Real Estate</h4>
+                  			<p>Showcase all your listings</p>
+                		</div>
+                		<hr>
+                		<div class="row py-2 text-info">
+							<div class="col-12 text-center">
+								<small>you'll be able to</small>
+							</div>
+                		</div>
+						<div class="row py-2 text-primary">
+							<div class="col-12"><i class="fas fa-check text-success"></i> Access to all listing pictures</div>
+							<div class="col-12"><i class="fas fa-check text-success"></i> Customer inquiry for each listing</div>
+							<div class="col-12"><i class="fas fa-check text-success"></i> Email notifications for inquiries</div>
+							<div class="col-12"><i class="fas fa-check text-success"></i> Filter your listings</div>
+						</div>
+						<hr>
+						<a href="{% url 'btre:index' %}" class="btn btn-success btn-block">More Info</a>
+					</div>
+				</div>
+			</div>
 
-          <div class="col-md-6 col-lg-4 mb-4">
+          	<div class="col-md-6 col-lg-4 mb-4">
                 <div class="card listing-preview">
-                  <img class="card-img-top" src="/static/myapps/img/qrss.jpg" alt="">
-                  <div class="card-img-overlay">
-                    <h2>
-                      <span class="badge badge-secondary text-white"></span>
-                    </h2>
-                  </div>
-                  <div class="card-body">
-                    <div class="listing-heading text-center">
-                      <h4 class="text-primary">QR Code</h4>
-                      <p>Multi-function QR codes app</p>
-                    </div>
-                    <hr>
-                    <div class="row py-2 text-info">
-                        <div class="col-12 text-center">
-                            <small>you'll be able to</small>
-                        </div>
-                    </div>
-                    <div class="row py-2 text-primary">
-                      <div class="col-12">
-                        <i class="fas fa-check text-success"></i> Assign QR Codes per contact</div>
-                      <div class="col-12">
-                        <i class="fas fa-check text-success"></i> Generate QR codes for contacts</div>
-                      <div class="col-12">
-                        <i class="fas fa-check text-success"></i> Give values to each code!</div>
-                      <div class="col-12">
-                        <i class="fas fa-check text-success"></i> Monitor QR code activity</div>
-                    </div>
-                    <hr>
-                    <a href="{% url 'attendees:index' %}" class="btn btn-success btn-block">More Info</a>
-                  </div>
-                </div>
-              </div>
+					<img class="card-img-top" src="/static/myapps/img/qrss.jpg" alt="">
+					<div class="card-img-overlay">
+						<h2>
+						<span class="badge badge-secondary text-white"></span>
+						</h2>
+					</div>
+					<div class="card-body">
+						<div class="listing-heading text-center">
+						<h4 class="text-primary">QR Code</h4>
+						<p>Multi-function QR codes app</p>
+						</div>
+						<hr>
+						<div class="row py-2 text-info">
+							<div class="col-12 text-center">
+								<small>you'll be able to</small>
+							</div>
+						</div>
+						<div class="row py-2 text-primary">
+							<div class="col-12"><i class="fas fa-check text-success"></i> Assign QR Codes per contact</div>
+							<div class="col-12"><i class="fas fa-check text-success"></i> Generate QR codes for contacts</div>
+							<div class="col-12"><i class="fas fa-check text-success"></i> Give values to each code!</div>
+							<div class="col-12"><i class="fas fa-check text-success"></i> Monitor QR code activity</div>
+						</div>
+						<hr>
+						<a href="{% url 'attendees:index' %}" class="btn btn-success btn-block">More Info</a>
+					</div>
+				</div>
+			</div>
 
-    </div>
-  </div>
+			<div class="col-md-6 col-lg-4 mb-4">
+                <div class="card listing-preview">
+					<img class="card-img-top" src="/static/myapps/img/boards-ss.jpg" alt="">
+					<div class="card-img-overlay">
+						<h2>
+						<span class="badge badge-secondary text-white"></span>
+						</h2>
+					</div>
+					<div class="card-body">
+						<div class="listing-heading text-center">
+						<h4 class="text-primary">Topic Board</h4>
+						<p>Topic aggregation application</p>
+						</div>
+						<hr>
+						<div class="row py-2 text-info">
+							<div class="col-12 text-center">
+								<small>you'll be able to</small>
+							</div>
+						</div>
+						<div class="row py-2 text-primary">
+							<div class="col-12"><i class="fas fa-check text-success"></i> Discuss with several people by topics</div>
+							<div class="col-12"><i class="fas fa-check text-success"></i> Create Board, Topics, and posts</div>
+							<div class="col-12"><i class="fas fa-check text-success"></i> Have your own profile</div>
+							<div class="col-12"><i class="fas fa-check text-success"></i> Also supports Gravatar</div>
+						</div>
+						<hr>
+						<a href="{% url 'boards:index' %}" class="btn btn-success btn-block">More Info</a>
+					</div>
+				</div>
+			</div>
+
+    	</div>
+  	</div>
 </section>
 
 <section id="services" class="py-5 bg-primary text-white">
