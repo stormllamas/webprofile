@@ -14,6 +14,7 @@ urlpatterns = [
     # path('re/contacts/', include('contacts.urls')),
     path('qr/', include('attendees.urls')),
     path('realestate/', include('realestate.urls')),
+    path('boards/', include('boards.urls')),
     path('admin/', admin.site.urls),
     path('', include('myapps.urls')),
 

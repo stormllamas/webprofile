@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'realestate.apps.RealEstateConfig',
     'accounts.apps.AccountsConfig',
+    'boards.apps.BoardsConfig',
     'widget_tweaks',
 
     'myapps.apps.MyappsConfig',
