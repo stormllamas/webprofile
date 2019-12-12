@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from .forms import ContactForm
 from django.contrib import messages
 
@@ -23,12 +23,11 @@ def about(request):
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
-        print('------------------------request is post------------------------')
         if form.is_valid():
             contact = form.save(commit=False)
 
             messages.success(request, 'Message Sent!')
-            return redirect(reverse('index'))
+            return redirect(reverse('contact'))
 
     else:
         form = ContactForm()
