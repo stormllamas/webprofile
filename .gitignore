@@ -128,3 +128,7 @@ venv/
 # SQLite database files
 
 *.sqlite3
+
+# Node Modules
+
+node_modules
