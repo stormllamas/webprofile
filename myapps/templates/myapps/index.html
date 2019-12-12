@@ -1,158 +1,111 @@
 {% extends 'myapps/layout.html' %}
 
-{% load static humanize %}
+{% load widget_tweaks %}
 
-{% block bootstrap %}
-<link rel="stylesheet" href="{% static 'myapps/css/bootstrap_2.css' %}">
-{% endblock %}
-
-{% block title %} | Storm Llamas {% endblock %}
+{% load static %}
 
 {% block content %}
-<!-- Showcase -->
-<section id="showcase">
-    <!-- Alerts -->
-    {% include 'myapps/partials/_alerts.html' %}
-    <div class="container text-center">
-        <div class="home-search p-5">
-            <div class="overlay p-5">
-                <img  class="rounded-circle col-md-3 p-2" src="{% static 'myapps/img/storm-side-formal.jpg' %}" alt="">
-                <h1 class="display-4 mb-4">
-                  Hi! I'm Storm. I'm a Web Developer
-                </h1>
-                <p class="lead">This is a compilation of web applications I've made based on Python's Django, Bootstrap 4.0, and <br> hosted by Ubuntu 18.04.3, Nginx and Gunicorn</p>
-            </div>
-        </div>
+  <header id="header-home">
+    <div class="main-header">
+      <div class="header-text">
+        <h2>Hi I'm Storm</h2>
+        <h4>The <span
+          class="txt-type"
+          data-wait="1500"
+          data-words='["Programmer", "Graphic Designer", "Web Developer"]'
+          ></span></h4>
+        <a href="#" class="btn-main">view my work</a>
+      </div>
     </div>
-</section>
+  </header>
+  <section id="things-i-do-title" class="bg-primary py-3">
+    <div class="container">
+      <h2 class="section-title">Things I Know How to Do</h2>
+      <div class="bottom-line-light"></div>
+    </div>
+  </section>
+  <section id="things-i-do">
+    <div class="container">
+      <div class="box-white">
+        <div class="content">
+          <div>
+            <div>
+              <i class="fas fa-bezier-curve fa-4x"></i>
+              <h3>Visual Design</h3>
+              <p>Logo design, layout design, sketching
+                  character creation.
+                  Also video editing, 3D art, 
+              </p>
+            </div>
+            <div>
+              <h3>Tools I Use</h3>
+              <p>Photoshop<br>Illustrator<br>Indesign<br>Premiere Pro<br>SketchUp<br>Abelton Live</p>
+            </div>
+          </div>
 
-<!-- Apps -->
-<section id="listings" class="py-5">
-  	<div class="container">
-    	<h3 class="text-center mb-5">Please Take a Look</h3>
-    	<div class="row">
-          	<div class="col-md-6 col-lg-4 mb-4">
-            	<div class="card listing-preview">
-              		<img class="card-img-top" src="/static/myapps/img/btress.jpg" alt="">
-              		<div class="card-img-overlay">
-						<h2>
-							<span class="badge badge-secondary text-white"></span>
-						</h2>
-          			</div>
-              		<div class="card-body">
-                		<div class="listing-heading text-center">
-                  			<h4 class="text-primary">Real Estate</h4>
-                  			<p>Showcase all your listings</p>
-                		</div>
-                		<hr>
-                		<div class="row py-2 text-info">
-							<div class="col-12 text-center">
-								<small>you'll be able to</small>
-							</div>
-                		</div>
-						<div class="row py-2 text-primary">
-							<div class="col-12"><i class="fas fa-check text-success"></i> Access to all listing pictures</div>
-							<div class="col-12"><i class="fas fa-check text-success"></i> Customer inquiry for each listing</div>
-							<div class="col-12"><i class="fas fa-check text-success"></i> Email notifications for inquiries</div>
-							<div class="col-12"><i class="fas fa-check text-success"></i> Filter your listings</div>
-						</div>
-						<hr>
-						<a href="{% url 'btre:index' %}" class="btn btn-success btn-block">More Info</a>
-					</div>
-				</div>
-			</div>
+          <div>
+            <div>
+              <i class="far fa-file-code fa-4x"></i>
+              <h3>Full-Stack Developer</h3>
+              <p>I like to create things that work,
+                  or maybe just improve on other ideas.
+                  But I also like to make them look
+                  aesthetically pleasing</p>
+            </div>
+            <div>
+              <h3>Languages I Speak</h3>
+              <p>Python<br>Django<br>HTML<br>CSS<br>Sass<br>SQL</p>
+            </div>
+          </div>
 
-          	<div class="col-md-6 col-lg-4 mb-4">
-                <div class="card listing-preview">
-					<img class="card-img-top" src="/static/myapps/img/qrss.jpg" alt="">
-					<div class="card-img-overlay">
-						<h2>
-						<span class="badge badge-secondary text-white"></span>
-						</h2>
-					</div>
-					<div class="card-body">
-						<div class="listing-heading text-center">
-						<h4 class="text-primary">QR Code</h4>
-						<p>Multi-function QR codes app</p>
-						</div>
-						<hr>
-						<div class="row py-2 text-info">
-							<div class="col-12 text-center">
-								<small>you'll be able to</small>
-							</div>
-						</div>
-						<div class="row py-2 text-primary">
-							<div class="col-12"><i class="fas fa-check text-success"></i> Assign QR Codes per contact</div>
-							<div class="col-12"><i class="fas fa-check text-success"></i> Generate QR codes for contacts</div>
-							<div class="col-12"><i class="fas fa-check text-success"></i> Give values to each code!</div>
-							<div class="col-12"><i class="fas fa-check text-success"></i> Monitor QR code activity</div>
-						</div>
-						<hr>
-						<a href="{% url 'attendees:index' %}" class="btn btn-success btn-block">More Info</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-6 col-lg-4 mb-4">
-                <div class="card listing-preview">
-					<img class="card-img-top" src="/static/myapps/img/boards-ss.jpg" alt="">
-					<div class="card-img-overlay">
-						<h2>
-						<span class="badge badge-secondary text-white"></span>
-						</h2>
-					</div>
-					<div class="card-body">
-						<div class="listing-heading text-center">
-						<h4 class="text-primary">Topic Board</h4>
-						<p>Topic aggregation application</p>
-						</div>
-						<hr>
-						<div class="row py-2 text-info">
-							<div class="col-12 text-center">
-								<small>you'll be able to</small>
-							</div>
-						</div>
-						<div class="row py-2 text-primary">
-							<div class="col-12"><i class="fas fa-check text-success"></i> Discuss with several people by topics</div>
-							<div class="col-12"><i class="fas fa-check text-success"></i> Create Board, Topics, and posts</div>
-							<div class="col-12"><i class="fas fa-check text-success"></i> Have your own profile</div>
-							<div class="col-12"><i class="fas fa-check text-success"></i> Also supports Gravatar</div>
-						</div>
-						<hr>
-						<a href="{% url 'boards:index' %}" class="btn btn-success btn-block">More Info</a>
-					</div>
-				</div>
-			</div>
-
-    	</div>
-  	</div>
-</section>
-
-<section id="services" class="py-5 bg-primary text-white">
-  <div class="container">
-    <div class="row text-center">
-        <div class="col-md-4">
-            <i class="fas fa-lightbulb fa-4x mr-4"></i>
-            <hr>
-            <h3>Not sure what you want?</h3>
-            <p>I have readily available themes for your site that we can start with and we can change it on the fly.</p>
+          <div>
+            <div>
+              <i class="fas fa-laptop fa-4x"></i>
+              <h3>Other Experience</h3>
+              <p>I’ve worked for a while on projects
+                  involving funnel hacking,
+                  SEO for content, Email Optimization,
+                  Data Mining</p>
+            </div>
+            <div>
+              <h3>Fields</h3>
+              <p>Funnel hacking<br>SEO for content<br>Email Optimization<br>Data Mining</p>
+            </div>
+          </div>
         </div>
-        <div class="col-md-4">
-            <i class="fas fa-cogs fa-4x mr-4"></i>
-            <hr>
-            <h3>Customizing</h3>
-            <p>The look and feel of your website is important and I want to make sure your brand is clearly reflected in your website and the functionality you want is</p>
+      </div>
+    </div>
+  </section>
+
+<!-- INQUIRY MODAL -->
+  <div id="inquiryModal" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="inquiryModalLabel">Send a Message</h3>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
         </div>
-        <div class="col-md-4">
-            <i class="fas fa-comment fa-4x mr-4"></i>
+        <div class="modal-body">
+          <form action="#" method="POST" novalidate>
+            {% csrf_token %}
+            {% for field in form %}
+              <div class="form-group">
+                {{ field.label_tag }}
+                {% render_field field class="form-control" %}
+                {% if field.help_text %}
+                    <small class="form-text text-muted">
+                        {{ field.help_text }}
+                    </small>
+                {% endif %}
+              </div>
+            {% endfor %}
             <hr>
-            <h3>Want to talk?</h3>
-            <i class="fas fa-phone"></i> 09175576822
-            <p><i class="fas fa-envelope"></i> stormsiallamas@gmail.com</p>
+            <input type="submit" value="Send" class="btn-main">
+          </form>
         </div>
+      </div>
     </div>
   </div>
-</section>
-<br>
-
 {% endblock %}

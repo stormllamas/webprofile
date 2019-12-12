@@ -1,0 +1,23 @@
+{
+  "name": "webprofile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w myapps/static/myapps/scss/ -o myapps/static/myapps/dist/css --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stormllamas/tech_llama.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stormllamas/tech_llama/issues"
+  },
+  "homepage": "https://github.com/stormllamas/tech_llama#readme",
+  "dependencies": {
+    "node-sass": "^4.13.0"
+  }
+}

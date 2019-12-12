@@ -1,63 +1,30 @@
 {% load static %}
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="{% url 'index' %}">
-        <img src="{% static 'myapps/img/tech_llama_logo.png' %}" class="logo" alt="logo">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <ul class="navbar-nav nav-logo">
-          <li
-            {% if '/' == request.path %}
-              class="nav-item active mr-3"
-            {% else %}
-              class="nav-item mr-3"
-            {% endif %}
-          >
-            <h1 class="text-white">Tech Llama</h1>
-          </li>
-        </ul>
 
-        <ul class="navbar-nav ml-auto">
-          {% if user.is_authenticated %}
-            <li
-            {% if 'dashboard' in request.path %}
-              class="nav-item active mr-3"
-            {% else %}
-              class="nav-item mr-3"
-            {% endif %}
-            >
-              <a class="nav-link" href="{% url 'my_account' %}">Welcome {{ user.username }}</a>
-            </li>
-            <li class="nav-item mr-3">
-              <a href="{% url 'logout' %}" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
-            </li>
-          {% else %}
-            <li
-            {% if 'signup' in request.path %}
-              class="nav-item active mr-3"
-            {% else %}
-              class="nav-item mr-3"
-            {% endif %}
-            >
-              <a class="nav-link" href="{% url 'signup' %}">
-                <i class="fas fa-user-plus"></i> Signup</a>
-            </li>
-            <li
-            {% if 'login' in request.path %}
-              class="nav-item active mr-3"
-            {% else %}
-              class="nav-item mr-3"
-            {% endif %}
-            >
-              <a class="nav-link" href="{% url 'login' %}">
-                <i class="fas fa-sign-in-alt"></i>
-                Login</a>
-            </li>
-          {% endif %}
+<nav id="main-nav">
+  <div class="container nav-content">
+    <div class="logo">
+      <img src="{% static 'myapps/img/tech_llama_logo.png' %}" alt="Tech Llama Logo">
+      <h1>Storm Llamas</h1>
+    </div>
+    <div class="navbar-links">
+      <div class="nav-items">
+        <a href="{% url 'index' %}" class="current"> Home </a>
+        <a href="#"> Resume </a>
+        <a href="#"> Work </a>
+        <a href="{% url 'about' %}"> About </a>
+      </div>
+      <div class="nav-items-dropdown">
+        <input type="checkbox" class="toggler">
+        <div class="hamburger"><div></div></div>
+        <div class="menu">
+          <div>
+            <a href="{% url 'index' %}" class="current"> Home </a>
+            <a href="#"> Resume </a>
+            <a href="#"> Work </a>
+            <a href="{% url 'about' %}"> About </a>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
 </nav>

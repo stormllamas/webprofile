@@ -31,14 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'realestate.apps.RealEstateConfig',
-    'accounts.apps.AccountsConfig',
-    'boards.apps.BoardsConfig',
     'widget_tweaks',
 
     'myapps.apps.MyappsConfig',
-    'attendees.apps.AttendeesConfig',
-
     'django.contrib.humanize',
 
     'django.contrib.admin',

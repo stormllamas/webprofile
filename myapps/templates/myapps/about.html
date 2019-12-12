@@ -1,0 +1,118 @@
+{% extends 'myapps/layout.html' %}
+
+{% load widget_tweaks %}
+
+{% load static %}
+
+{% block content %}
+  
+  <header id="about-me" class="py-3">
+    <div>
+      <h2 class="section-title">About Me</h2>
+      <div class="bottom-line-primary"></div>
+    </div>
+    <div class="bg-light py-2">
+      <div class="container">
+        <img src="{% static 'myapps/img/storm-front-casual2.jpg' %}" class="about-img" alt="Storm Llamas">
+        <div class="about-text">
+          <h3>Hi, I’m Storm. Nice to Meet You.</h3>
+          <p>I think coding and visual design is awesome. It makes things smarter, allows<br>
+            resources to be more accessible, and makes life a lot more fun.<br>
+            <br>
+            My goal is to be a leader in the nexus of technology and design to<br>
+            make an impact on making education free for all and make people aware of it<br>
+            and technology can make that happen</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Companies I've worked with -->
+  <section id="companies" class="my-3">
+    <div>
+      <h2 class="section-title">Companies I've Worked With</h2>
+      <div class="bottom-line-primary"></div>
+    </div>
+    <div class="companies py-2">
+      <img src="{% static 'myapps/img/oppo-07.png' %}" class="companies-img" alt="oppo">
+      <img src="{% static 'myapps/img/age-08.png' %}" class="companies-img" alt="oppo">
+    </div>
+  </section>
+
+  <!-- Technical Skills -->
+  <section id="technical-skills">
+    <div class="bg-light py-2">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="bottom-line-primary"></div>
+      <div class="container">
+        <div class="skills my-2">
+          <div class="skill"> 
+            <div class="skill-type">
+              <h3>Python</h3>
+            </div>
+            <div class="progress">
+              <div style="width:88%"></div>
+            </div>
+          </div>
+          <div class="skill"> 
+            <div class="skill-type">
+              <h3>Javascript</h3>
+            </div>
+            <div class="progress">
+              <div style="width:79%"></div>
+            </div>
+          </div>
+          <div class="skill"> 
+            <div class="skill-type">
+              <h3>HTML/CSS, Sass</h3>
+            </div>
+            <div class="progress">
+              <div style="width:79%"></div>
+            </div>
+          </div>
+          <div class="skill"> 
+            <div class="skill-type">
+              <h3>SQL</h3>
+            </div>
+            <div class="progress">
+              <div style="width:70%"></div>
+            </div>
+          </div>
+          <div class="skill"> 
+            <div class="skill-type">
+              <h3>Photoshop</h3>
+            </div>
+            <div class="progress">
+              <div style="width:75%"></div>
+            </div>
+          </div>
+          <div class="skill"> 
+            <div class="skill-type">
+              <h3>Illustrator</h3>
+            </div>
+            <div class="progress">
+              <div style="width:88%"></div>
+            </div>
+          </div>
+          <div class="skill"> 
+            <div class="skill-type">
+              <h3>Premiere Pro</h3>
+            </div>
+            <div class="progress">
+              <div style="width:77%"></div>
+            </div>
+          </div>
+          <div class="skill"> 
+            <div class="skill-type">
+              <h3>SketchUp</h3>
+            </div>
+            <div class="progress">
+              <div style="width:77%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

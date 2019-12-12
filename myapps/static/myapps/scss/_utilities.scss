@@ -1,0 +1,150 @@
+// Buttons ------------------------------------------------------------------------------------
+%btn-shared {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    transition: all 0.5s;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+.btn {
+  &-main {
+    @extend %btn-shared;
+    color: #fff;
+    background-color: $main-color;
+    border: 2px #fff solid;
+    text-transform: uppercase;
+
+  }
+
+  &-light {
+    @extend %btn-shared;
+    color: $main-color;
+    background-color: #f4f4f4;
+    border: 2px $main-color solid;
+    text-transform: uppercase;
+  }
+
+  &-dark {
+    @extend %btn-shared;
+    color: #333;
+    background-color: $main-color;
+    text-transform: uppercase;
+  }
+}
+
+  
+button[class^='btn-main']:hover,
+a[class^='btn-main']:hover,
+input[class^='btn-main']:hover {
+  background-color: #fff;
+  border: 2px $main-color solid;
+  color: $main-color;
+}
+
+button[class^='btn-light']:hover,
+a[class^='btn-light']:hover,
+input[class^='btn-light']:hover {
+  background-color: $main-color;
+  color: #fff;
+}
+
+// Backgrounds ------------------------------------------------------------------------------------
+.bg {
+  &-primary {
+    background: $main-color
+  }
+
+  &-light {
+    background: $light-color;
+  }
+}
+
+// Padding
+.py {
+  &-1 {
+    padding: 1rem 0;
+  }
+  &-2 {
+    padding: 2rem 0;
+  }
+  &-3 {
+    padding: 3rem 0;
+  }
+  &-4 {
+    padding: 4rem 0;
+  }
+}
+
+// Margin
+.my {
+  &-1 {
+    margin: 1rem 0;
+  }
+  &-2 {
+    margin: 2rem 0;
+  }
+  &-3 {
+    margin: 3rem 0;
+  }
+  &-4 {
+    margin: 4rem 0;
+  }
+}
+
+// Boxes
+.box {
+
+  &-white {
+    background: #fff;
+    border-radius: 5px;
+  }
+}
+
+
+// Titles
+.section-title {
+  font-family: 'Varela', sans-serif;
+  display: block;
+  padding-bottom: 0.5rem;
+  text-align: center;
+  font-weight: 100;
+}
+
+%line-shared {
+  height: 4px;
+  width: 4rem;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+
+// Lines
+.bottom-line{
+  &-light {
+    @extend %line-shared;
+    background: #fff;
+  }
+  &-primary {
+    @extend %line-shared;
+    background: $main-color;
+  }
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+
+// Progress bars
+.progress {
+  width: 100%;
+  height: 20px;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 10px;
+}

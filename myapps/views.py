@@ -1,4 +1,36 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import ContactForm
+from django.contrib import messages
 
 def index(request):
-    return render(request, 'myapps/index.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        print('------------------------request is post------------------------')
+        if form.is_valid():
+            contact = form.save(commit=False)
+
+            messages.success(request, 'Message Sent!')
+            return redirect(reverse('index'))
+
+    else:
+        form = ContactForm()
+
+    return render(request, 'myapps/index.html', {'form':form})
+
+def about(request):
+    return render (request, 'myapps/about.html')
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        print('------------------------request is post------------------------')
+        if form.is_valid():
+            contact = form.save(commit=False)
+
+            messages.success(request, 'Message Sent!')
+            return redirect(reverse('index'))
+
+    else:
+        form = ContactForm()
+
+    return render (request, 'myapps/contact.html', {'form':form})

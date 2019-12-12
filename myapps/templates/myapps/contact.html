@@ -1,0 +1,62 @@
+{% extends 'myapps/layout.html' %}
+
+{% load widget_tweaks %}
+
+{% load static %}
+
+{% block content %}
+<header id="contact-me" class="py-2">
+  <div>
+    <h2 class="section-title">Contact Me</h2>
+    <div class="bottom-line-primary"></div>
+  </div>
+</header>
+
+<section class="contact-form">
+  <div class="contact-dialog">
+    <div class="contact-content">
+      <form action="#" method="POST" novalidate>
+        {% csrf_token %}
+        <div class="three-forms">
+          {% for field in form %}
+            {% if forloop.counter < 4 %}
+              <div class="form-group">
+                {{ field.label_tag }}
+                {% render_field field class="form-control" %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% for field in form %}
+          {% if forloop.counter >= 4 %}
+            <div class="form-group">
+              {{ field.label_tag }}
+              {% render_field field class="form-control" %}
+            </div>
+          {% endif %}
+        {% endfor %}
+        <input type="submit" value="Send" class="btn-main">
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="contact-info">
+  <div class="container">
+    <div class="contact-info-content">
+      <div class="info">
+        <i class="fas fa-phone fa-4x"></i>
+        <p>(+63) 9175576822</p>
+      </div>
+      <div class="info">
+        <i class="fas fa-envelope fa-4x"></i>
+        <p>stormsiallamas@gmail.com</p>
+      </div>
+      <div class="info">
+        <i class="fas fa-map-marker-alt fa-4x"></i>
+        <p>Lucena, Quezon, PH</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
