@@ -518,11 +518,12 @@ ul {
       justify-content: flex-end; }
 
 #about-me div.bg-light {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   margin-top: 3rem; }
+  #about-me div.bg-light .container {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
   #about-me div.bg-light .about-img {
     width: 200px;
     height: 200px;
@@ -609,13 +610,13 @@ ul {
   #header-home .main-header .header-text {
     padding-left: 40%;
     padding-top: 15vh; }
-  #about-me div.bg-light {
+  #about-me div.bg-light .container {
     flex-direction: column;
     justify-content: center; }
-    #about-me div.bg-light .about-img {
-      margin-bottom: 2rem; }
-    #about-me div.bg-light .about-text {
-      margin: 0; }
+  #about-me div.bg-light .about-img {
+    margin-bottom: 2rem; }
+  #about-me div.bg-light .about-text {
+    margin: 0; }
   #technical-skills .skills {
     padding: 0 1rem; }
     #technical-skills .skills .skill {
