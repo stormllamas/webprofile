@@ -470,12 +470,17 @@ ul {
 // Companies worked with
 #companies {
   .companies {
-    display: flex;
-    justify-content: center;
 
-    .companies-img {
-      max-width: 150px;
-      margin: auto 2rem auto 2rem;
+    .logos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 1rem;
+      align-items: center;
+      justify-items: center;
+
+      .companies-img {
+        width: 80%;
+      }
     }
   }
 }

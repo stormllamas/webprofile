@@ -10,11 +10,12 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand|Varela+Round|Varela&display=swap" rel="stylesheet">
     <link rel="icon" href="{% static 'myapps/img/tech_llama_favicon.ico' %}">
     <link rel="stylesheet" href="{% static 'myapps/dist/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'myapps/css/form.css' %}">
     <title>Tech Llama | Storm Llamas</title>
   </head>
   <body>
     <!-- Navigation Bar -->
-    {% include 'myapps/partials/_navbar.html' %}
+    {% block navbar %} {% endblock %}
     <!-- Main Content -->
     {% block content %} {% endblock %}
     <!-- View My Work -->

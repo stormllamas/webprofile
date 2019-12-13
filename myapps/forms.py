@@ -41,8 +41,8 @@ class ContactForm(forms.ModelForm):
             attrs={'rows':5, 'placeholder': 'What is on your mind?'}
         ),
         max_length=4000,
-        help_text='(optional) 4000 characters allowed',
-        required = False,
+        help_text='4000 characters allowed',
+        required = True,
         )
 
     class Meta:

@@ -24,10 +24,13 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            contact = form.save(commit=False)
+            contact = form.save()
 
             messages.success(request, 'Message Sent!')
             return redirect(reverse('contact'))
+
+        else:
+            messages.error(request, 'Please fill in the required fields')
 
     else:
         form = ContactForm()

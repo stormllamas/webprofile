@@ -153,12 +153,12 @@ textarea.form-control {
   display: flex;
   justify-content: center; }
   .contact-form .contact-dialog {
-    background: #71cad2;
+    background: #f4f4f4;
     width: 1000px;
     padding: 4rem 3rem 3rem 3rem;
     margin: 0 2rem 2rem 2rem;
     border-radius: 10px;
-    color: #fff;
+    color: #333333;
     font-weight: 600; }
     .contact-form .contact-dialog .three-forms {
       display: flex; }
@@ -532,12 +532,14 @@ ul {
     line-height: 2rem;
     margin-left: 4rem; }
 
-#companies .companies {
-  display: flex;
-  justify-content: center; }
-  #companies .companies .companies-img {
-    max-width: 150px;
-    margin: auto 2rem auto 2rem; }
+#companies .companies .logos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  align-items: center;
+  justify-items: center; }
+  #companies .companies .logos .companies-img {
+    width: 80%; }
 
 #technical-skills .skills {
   padding: 0 5rem; }

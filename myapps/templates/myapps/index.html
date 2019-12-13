@@ -4,6 +4,39 @@
 
 {% load static %}
 
+
+{% block navbar %}
+<nav id="main-nav">
+  <div class="container nav-content">
+    <div class="logo">
+      <img src="{% static 'myapps/img/tech_llama_logo.png' %}" alt="Tech Llama Logo">
+      <h1>Storm Llamas</h1>
+    </div>
+    <div class="navbar-links">
+      <div class="nav-items">
+        <a href="{% url 'index' %}" class="current"> Home </a>
+        <a href="#"> Resume </a>
+        <a href="#"> Work </a>
+        <a href="{% url 'about' %}"> About </a>
+      </div>
+      <div class="nav-items-dropdown">
+        <input type="checkbox" class="toggler">
+        <div class="hamburger"><div></div></div>
+        <div class="menu">
+          <div>
+            <a href="{% url 'index' %}" class="current"> Home </a>
+            <a href="#"> Resume </a>
+            <a href="#"> Work </a>
+            <a href="{% url 'about' %}"> About </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+{% endblock %}
+
+
 {% block content %}
   <header id="header-home">
     <div class="main-header">
