@@ -557,6 +557,89 @@ ul {
       color: #fff;
       text-align: center; }
 
+#timeline {
+  margin-top: 5rem; }
+  #timeline .timeline-start, #timeline .timeline-end {
+    width: 80px;
+    height: 10px;
+    background: #71cad2; }
+  #timeline .timeline-start {
+    margin: 3rem auto 0 auto; }
+  #timeline .timeline-end {
+    margin: 0 auto 0 auto; }
+  #timeline ul li {
+    position: relative;
+    display: flex;
+    width: 6px;
+    height: 200px;
+    margin: 0 auto;
+    align-items: center;
+    background: #71cad2; }
+    #timeline ul li.show .times {
+      transform: none !important;
+      visibility: visible;
+      opacity: 1; }
+    #timeline ul li .dots {
+      position: absolute;
+      width: 70px;
+      border-top: 6px #71cad2 dotted; }
+    #timeline ul li .times {
+      position: relative;
+      display: flex;
+      align-items: center;
+      color: #333;
+      padding: 1rem 0;
+      transition: all 0.5s ease-in-out;
+      visibility: hidden;
+      opacity: 0; }
+      #timeline ul li .times .timeline-date {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 90px;
+        background: #71cad2;
+        border-radius: 50%; }
+        #timeline ul li .times .timeline-date div {
+          display: flex;
+          text-align: center;
+          width: 90px;
+          flex-direction: column;
+          color: #fff; }
+          #timeline ul li .times .timeline-date div h3.month {
+            font-size: 19px; }
+          #timeline ul li .times .timeline-date div h3.year {
+            font-size: 25px;
+            margin-top: -10px; }
+      #timeline ul li .times .timeline-text {
+        left: 200px;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: start; }
+    #timeline ul li:nth-child(even) .dots {
+      left: 12px; }
+    #timeline ul li:nth-child(even) .times {
+      left: 88px;
+      transform: translate(200px, 0); }
+      #timeline ul li:nth-child(even) .times .timeline-date {
+        margin-right: 20px; }
+      #timeline ul li:nth-child(even) .times .timeline-text {
+        left: 200px;
+        min-width: 300px;
+        align-items: flex-start; }
+    #timeline ul li:nth-child(odd) .dots {
+      left: -76px; }
+    #timeline ul li:nth-child(odd) .times {
+      left: -492px;
+      transform: translate(-200px, 0); }
+      #timeline ul li:nth-child(odd) .times .timeline-date {
+        margin-left: 20px; }
+      #timeline ul li:nth-child(odd) .times .timeline-text {
+        left: -284px;
+        min-width: 300px;
+        align-items: flex-end;
+        text-align: end; }
+
 @media (max-width: 1250px) {
   #header-home .main-header:before {
     background: url("/static/myapps/img/storm4web-tilt.png") no-repeat bottom left/contain;
@@ -580,9 +663,14 @@ ul {
     font-size: 45px; }
   #header-home {
     height: 50vh; }
+    #header-home .main-header:before {
+      background: url("/static/myapps/img/storm4web.png") no-repeat bottom left/contain;
+      left: 20%; }
     #header-home .main-header .header-text {
       padding-left: 45%;
-      padding-top: 15vh; } }
+      padding-top: 15vh; }
+      #header-home .main-header .header-text h4 {
+        margin-bottom: 20px; } }
 
 @media (max-width: 900px) {
   P {
@@ -653,7 +741,7 @@ ul {
   h3 {
     font-size: 18px; }
   h4 {
-    font-size: 25px; }
+    font-size: 30px; }
   #main-nav .nav-content .logo img {
     margin-right: 1rem; }
   #header-home {

@@ -22,6 +22,7 @@
     {% include 'myapps/partials/_work.html' %}
     <!-- Footer -->
     {% include 'myapps/partials/_footer.html' %}
-    <script src="{% static 'myapps/js/typewriter.js' %}"></script>
+
+    {% block scripts %}{% endblock %}
   </body>
 </html>

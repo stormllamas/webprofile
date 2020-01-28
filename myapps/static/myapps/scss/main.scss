@@ -513,5 +513,141 @@ ul {
   }
 }
 
+#timeline {
+  margin-top: 5rem;
+
+  .timeline-start, .timeline-end {
+    width: 80px;
+    height: 10px;
+    background: $main-color;
+  }
+
+  .timeline-start {
+    margin: 3rem auto 0 auto;
+  }
+
+  .timeline-end {
+    margin: 0 auto 0 auto;
+  }
+
+  ul {
+
+    li {
+      position: relative;
+      display: flex;
+      width: 6px;
+      height: 200px;
+      margin: 0 auto;
+      align-items: center;
+      background: $main-color;
+
+      &.show {
+
+        .times {
+          transform: none !important;
+          visibility: visible ;
+          opacity: 1;
+        }
+      }
+
+      .dots {
+        position: absolute;
+        width: 70px;
+        border-top: 6px $main-color dotted;
+      }
+
+      .times {
+        position: relative;
+        display: flex;
+        align-items: center;
+        color: #333;
+        padding: 1rem 0;
+        transition: all 0.5s ease-in-out;
+        visibility: hidden;
+        opacity: 0;
+
+        .timeline-date {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: 90px;
+          background: $main-color;
+          border-radius: 50%;
+
+          div{
+            display: flex;
+            text-align: center;
+            width: 90px;
+            flex-direction: column;
+            color: #fff;
+
+            h3.month {
+              font-size: 19px;
+            }
+    
+            h3.year {
+              font-size: 25px;
+              margin-top: -10px;
+            }
+          }
+        }
+
+        .timeline-text {
+          left: 200px;
+          width: 300px;
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+        }
+      }
+
+      &:nth-child(even) {
+
+        .dots {
+          left: 12px;
+        }
+  
+        .times {
+          left: 88px;
+          transform: translate(200px, 0);
+  
+          .timeline-date {
+            margin-right: 20px;
+          }
+  
+          .timeline-text {
+            left: 200px;
+            min-width: 300px;
+            align-items: flex-start;
+          }
+        }
+      }
+
+      &:nth-child(odd) {
+
+        .dots {
+          left: -76px;
+        }
+  
+        .times {
+          left: -492px;
+          transform: translate(-200px, 0);
+  
+          .timeline-date {
+            margin-left: 20px;
+          }
+  
+          .timeline-text {
+            left: -284px;
+            min-width: 300px;
+            align-items: flex-end;
+            text-align: end;
+          }
+        }
+      }
+    }
+  }
+}
+
 
 @import 'media';

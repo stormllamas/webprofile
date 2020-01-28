@@ -152,4 +152,101 @@
     </div>
   </section>
 
+  <section id="timeline">
+    <h2 class="section-title">Knowledge Timeline</h2>
+    <div class="timeline-start"></div>
+    <ul>
+      <li>
+        <div class="dots"></div>
+        <div class="times">
+          <div class="timeline-text">
+            <h2>Angular</h2>
+            <p>
+              DOM, OOP, Asynchronous JS, Ajax & Fetch, ES5 & ES6, JS Patterns
+            </p>
+          </div>
+          <div class="timeline-date">
+            <div>
+              <h3 class="month">Jan</h3>
+              <h3 class="year">2020</h3>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="dots"></div>
+        <div class="times">
+          <div class="timeline-date">
+            <div>
+              <h3 class="month">Oct</h3>
+              <h3 class="year">2019</h3>
+            </div>
+          </div>
+          <div class="timeline-text">
+            <h2>JavaScript</h2>
+            <p>
+              DOM, OOP, Asynchronous JS, Ajax & Fetch, Local & Session storage, ES5 & ES6, JS Patterns
+            </p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="dots"></div>
+        <div class="times">
+          <div class="timeline-text">
+            <h2>HTML/CSS/Sass</h2>
+            <p>
+              Fundamentals & Basics, Styling, Advanced Selectors, Keyframe, Animations, Transitions
+            </p>
+          </div>
+          <div class="timeline-date">
+            <div>
+              <h3 class="month">July</h3>
+              <h3 class="year">2019</h3>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="dots"></div>
+        <div class="times">
+          <div class="timeline-date">
+            <div>
+              <h3 class="month">April</h3>
+              <h3 class="year">2019</h3>
+            </div>
+          </div>
+          <div class="timeline-text">
+            <h2>Django</h2>
+            <p>
+              Virtual environments, DB migrations, Jinja, Reusable apps, GCBV, Deployment
+            </p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="dots"></div>
+        <div class="times">
+          <div class="timeline-text">
+            <h2>Python & SQL</h2>
+            <p>
+              First language learned. Fundamentals, OOP, De-serialization, Data Parsing, Regex, 
+            </p>
+          </div>
+          <div class="timeline-date">
+            <div>
+              <h3 class="month">Oct</h3>
+              <h3 class="year">2018</h3>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="timeline-end"></div>
+  </section>
+
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static 'myapps/js/timeline.js' %}"></script>
 {% endblock %}
