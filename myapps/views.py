@@ -1,10 +1,12 @@
 from django.views.generic import View
 
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .forms import ContactForm
 from django.contrib import messages
+from .models import Profile
 
 def index(request):
+    profile = get_object_or_404(Profile, pk=1)
     if request.method == 'POST':
         form = ContactForm(request.POST)
         print('------------------------request is post------------------------')
@@ -17,7 +19,12 @@ def index(request):
     else:
         form = ContactForm()
 
-    return render(request, 'myapps/index.html', {'form':form})
+    context = {
+        'form': form,
+        'resume': profile.resume
+    }
+
+    return render(request, 'myapps/index.html', context)
 
 def about(request):
     return render (request, 'myapps/about.html')

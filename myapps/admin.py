@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Contact
+from .models import Contact, Profile
 
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('name', 'subject', 'message', 'contact_date')
@@ -10,3 +10,5 @@ class ContactAdmin(admin.ModelAdmin):
     search_fields = ('subject', 'message')
 
 admin.site.register(Contact, ContactAdmin)
+
+admin.site.register(Profile)

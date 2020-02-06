@@ -15,7 +15,7 @@
     <div class="navbar-links">
       <div class="nav-items">
         <a href="{% url 'index' %}" class="current"> Home </a>
-        <a href="#"> Resume </a>
+        <a href="{{ resume.url }}" target="_blank"> Resume </a>
         <a href="#"> Work </a>
         <a href="{% url 'about' %}"> About </a>
       </div>
@@ -25,7 +25,7 @@
         <div class="menu">
           <div>
             <a href="{% url 'index' %}" class="current"> Home </a>
-            <a href="#"> Resume </a>
+            <a href="{{ resume.url }}" target="_blank"> Resume </a>
             <a href="#"> Work </a>
             <a href="{% url 'about' %}"> About </a>
           </div>
