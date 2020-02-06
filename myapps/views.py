@@ -1,3 +1,5 @@
+from django.views.generic import View
+
 from django.shortcuts import render, redirect, reverse
 from .forms import ContactForm
 from django.contrib import messages
@@ -36,3 +38,11 @@ def contact(request):
         form = ContactForm()
 
     return render (request, 'myapps/contact.html', {'form':form})
+
+# def notfound(request, Exception=None):
+#     return render (request, 'myapps/notfound.html', {})
+
+
+class FrontendRenderView(View):
+    def get(self, request, *args, **kwargs):
+        return render (request, 'myapps/notfound.html', {})

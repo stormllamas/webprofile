@@ -53,6 +53,14 @@ ul {
   margin: auto;
 }
 
+.primary {
+  color: $main-color;
+}
+
+.bold {
+  font-weight: bold;
+}
+
 // Navbar
 #main-nav {
   border-bottom: 1px $main-color solid;
@@ -472,6 +480,8 @@ ul {
   .companies {
 
     .logos {
+      margin: auto;
+      max-width: 650px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 1rem;

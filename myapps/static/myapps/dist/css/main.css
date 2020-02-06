@@ -257,6 +257,12 @@ ul {
   padding: 0 1.5rem;
   margin: auto; }
 
+.primary {
+  color: #71cad2; }
+
+.bold {
+  font-weight: bold; }
+
 #main-nav {
   border-bottom: 1px #71cad2 solid;
   padding: 0.55rem 0; }
@@ -533,6 +539,8 @@ ul {
     margin-left: 4rem; }
 
 #companies .companies .logos {
+  margin: auto;
+  max-width: 650px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1rem;
