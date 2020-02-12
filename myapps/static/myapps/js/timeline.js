@@ -1,7 +1,5 @@
 const items = document.querySelectorAll('#timeline li');
 
-console.log(items);
-
 const isInViewport = el => {
   const rect = el.getBoundingClientRect();
   return (
@@ -17,7 +15,7 @@ const run = () =>
   items.forEach(item => {
     if (isInViewport(item)) {
       item.classList.add('show');
-      console.log(isInViewport(item))
+      // console.log(isInViewport(item))
     }
   });
 

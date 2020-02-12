@@ -27,7 +27,8 @@ def index(request):
     return render(request, 'myapps/index.html', context)
 
 def about(request):
-    return render (request, 'myapps/about.html')
+    profile = get_object_or_404(Profile, pk=1)
+    return render (request, 'myapps/about.html', {'resume': profile.resume})
 
 def contact(request):
     if request.method == 'POST':

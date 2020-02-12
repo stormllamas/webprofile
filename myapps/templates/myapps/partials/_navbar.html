@@ -8,20 +8,20 @@
     </div>
     <div class="navbar-links">
       <div class="nav-items">
-        <a href="{% url 'index' %}" class="current"> Home </a>
-        <a href="#"> Resume </a>
-        <a href="#"> Work </a>
-        <a href="{% url 'about' %}"> About </a>
+        <a href="{% url 'index' %}" {% if '/' == request.path %} class="current" {% endif %}> Home </a>
+        <a href="{{ resume.url }}" target="_blank"> Resume </a>
+        <a href="#" > Work </a>
+        <a href="{% url 'about' %}" {% if '/about/' == request.path %} class="current" {% endif %}> About </a>
       </div>
       <div class="nav-items-dropdown">
         <input type="checkbox" class="toggler">
         <div class="hamburger"><div></div></div>
         <div class="menu">
           <div>
-            <a href="{% url 'index' %}" class="current"> Home </a>
-            <a href="#"> Resume </a>
+            <a href="{% url 'index' %}" {% if '/' == request.path %} class="current" {% endif %}> Home </a>
+            <a href="{{ resume.url }}" target="_blank"> Resume </a>
             <a href="#"> Work </a>
-            <a href="{% url 'about' %}"> About </a>
+            <a href="{% url 'about' %}"  {% if '/about/' == request.path %} class="current" {% endif %}> About </a>
           </div>
         </div>
       </div>
