@@ -1,0 +1,39 @@
+{% extends 'attendees/layout.html' %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item active"><a href="{% url 'attendees:index' %}">Attendees</a></li>
+    <li class="breadcrumb-item active">QR Scanner</li>
+{% endblock %}
+
+{% block message %}
+    {% include 'attendees/partials/_alerts.html' %}
+{% endblock %}
+
+{% block content %}
+{% if attendee %}
+<div class="text-lg-right mb-lg-4">
+    <a href="{% url 'attendees:edit_attendee' attendee.id %}" class="btn btn-success" role="button">Edit Attendee's Name</a>
+</div>
+<table class="table">
+    {% include 'attendees/includes/action_thead.html' %}
+    <tbody>
+        <tr>
+            <td>{{attendee.last_name}}, {{attendee.first_name}}</td>
+            <td>{{attendee.timestamp}}</td>
+            {% if claim_points %}
+                <td class="text-center text-success">{{ claim_points }}</td>
+            {% elif redeem_points %}
+                <td class="text-center text-danger">{{ redeem_points }}</td>
+            {% else %} 
+                <td class="text-center"></td>
+            {% endif %}
+            <td class="text-center">{{attendee.points_earned}}</td>
+            <td class="text-center">{{attendee.points_redeemed}}</td>
+            <td class="text-center">{{attendee.points_balance}}</td>
+        </tr>
+    </tbody>
+</table>
+{% else %}
+    <a style="text-align: center" href="{% url 'attendees:index' %}"><small class="text-muted d-block p-2">Go Back to Home</small></a>
+{% endif %}
+{% endblock %}

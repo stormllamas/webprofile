@@ -1,0 +1,260 @@
+{% extends 'attendees/layout.html' %}
+
+{% load humanize static %}
+
+{% block message %}
+  {% include 'attendees/partials/_alerts.html' %}
+{% endblock %}
+
+{% block content %}
+
+<section id="main-feed">
+  <div class="feed-content">
+    <div class="table-title">
+      <h2>Overview</h2>
+      <div class="overview-buttons">
+        <a href="{% url 'attendees:redeem_points' %}" class="btn-green">Redeem Points</a>
+        <a href="{% url 'attendees:qrscanner' %}" class="btn-yellow"><i class="fas fa-qrcode"></i></a>
+        <a href="{% url 'attendees:claim_points' %}" class="btn-blue">Claim Points</a>
+      </div>
+    </div>
+    <div class="card">
+      {% include 'attendees/partials/_pagination.html' %}
+      <table id="overview-table" class="table">
+        <thead>
+          <tr>
+            <th>
+              <a 
+              {% if request.GET.sort %}
+                {% if request.GET.sort == 'present' %}
+                  {% if request.GET.desc == 'true' %}
+                    href="?sort=present"
+                  {% else %}
+                    href="?sort=present&desc=true"
+                  {% endif %}
+                {% else %}
+                  href="?sort=present"
+                {% endif %}
+              {% else %}
+                href="?sort=present"
+              {% endif %}
+              >
+              <h4>Status</h4>
+              {% if request.GET.sort %}
+                {% if request.GET.sort == 'present' %}
+                  {% if request.GET.desc == 'true' %}
+                    <div class="fas fa-sort-down"></div>
+                  {% else %}
+                    <div class="fas fa-sort-up"></div>
+                  {% endif %}
+                {% else %}
+                  <div class="fas fa-sort"></div>
+                {% endif %}
+              {% else %}
+                <div class="fas fa-sort"></div>
+              {% endif %}
+              </a>
+            </th>
+            <th>
+              <h4>ID</h4>
+            </th>
+            <th>
+              <a 
+              {% if request.GET.sort %}
+                {% if request.GET.sort == 'last_name' %}
+                  {% if request.GET.desc == 'true' %}
+                    href="?sort=last_name"
+                  {% else %}
+                    href="?sort=last_name&desc=true"
+                  {% endif %}
+                {% else %}
+                  href="?sort=last_name"
+                {% endif %}
+              {% else %}
+                href="?sort=last_name"
+              {% endif %}
+              >
+              <h4>Full Name</h4>
+              {% if request.GET.sort %}
+                {% if request.GET.sort == 'last_name' %}
+                  {% if request.GET.desc == 'true' %}
+                    <div class="fas fa-sort-down"></div>
+                  {% else %}
+                    <div class="fas fa-sort-up"></div>
+                  {% endif %}
+                {% else %}
+                  <div class="fas fa-sort"></div>
+                {% endif %}
+              {% else %}
+                <div class="fas fa-sort"></div>
+              {% endif %}
+              </a>
+            </th>
+            <th>
+              <a 
+              {% if request.GET.sort %}
+                {% if request.GET.sort == 'timestamp' %}
+                  {% if request.GET.desc == 'true' %}
+                    href="?sort=timestamp"
+                  {% else %}
+                    href="?sort=timestamp&desc=true"
+                  {% endif %}
+                {% else %}
+                  href="?sort=timestamp"
+                {% endif %}
+              {% else %}
+                href="?sort=timestamp"
+              {% endif %}
+              >
+              <h4>Latest Timestamp</h4>
+              {% if request.GET.sort %}
+                {% if request.GET.sort == 'timestamp' %}
+                  {% if request.GET.desc == 'true' %}
+                    <div class="fas fa-sort-down"></div>
+                  {% else %}
+                    <div class="fas fa-sort-up"></div>
+                  {% endif %}
+                {% else %}
+                  <div class="fas fa-sort"></div>
+                {% endif %}
+              {% else %}
+                <div class="fas fa-sort"></div>
+              {% endif %}
+              </a>
+            </th>
+            <th>
+              <a 
+              {% if request.GET.sort %}
+                {% if request.GET.sort == 'points_earned' %}
+                  {% if request.GET.desc == 'true' %}
+                    href="?sort=points_earned"
+                  {% else %}
+                    href="?sort=points_earned&desc=true"
+                  {% endif %}
+                {% else %}
+                  href="?sort=points_earned"
+                {% endif %}
+              {% else %}
+                href="?sort=points_earned"
+              {% endif %}
+              >
+                <h4 id="points-earned">Points Earned</h4>
+                <div class="tpe">{{ tpe | intcomma }}</div>
+
+                {% if request.GET.sort %}
+                  {% if request.GET.sort == 'points_earned' %}
+                    {% if request.GET.desc == 'true' %}
+                      <div class="fas fa-sort-down"></div>
+                    {% else %}
+                      <div class="fas fa-sort-up"></div>
+                    {% endif %}
+                  {% else %}
+                    <div class="fas fa-sort"></div>
+                  {% endif %}
+                {% else %}
+                  <div class="fas fa-sort"></div>
+                {% endif %}
+              </a>
+            </th>
+            <th>
+              <a 
+              {% if request.GET.sort %}
+                {% if request.GET.sort == 'points_redeemed' %}
+                  {% if request.GET.desc == 'true' %}
+                    href="?sort=points_redeemed"
+                  {% else %}
+                    href="?sort=points_redeemed&desc=true"
+                  {% endif %}
+                {% else %}
+                  href="?sort=points_redeemed"
+                {% endif %}
+              {% else %}
+                href="?sort=points_redeemed"
+              {% endif %}
+              >
+              <h4 id="points-redeemed">Points Redeemed</h4>
+              <div class="tpr">{{ tpr | intcomma }}</div>
+              {% if request.GET.sort %}
+                {% if request.GET.sort == 'points_redeemed' %}
+                  {% if request.GET.desc == 'true' %}
+                    <div class="fas fa-sort-down"></div>
+                  {% else %}
+                    <div class="fas fa-sort-up"></div>
+                  {% endif %}
+                {% else %}
+                  <div class="fas fa-sort"></div>
+                {% endif %}
+              {% else %}
+                <div class="fas fa-sort"></div>
+              {% endif %}
+              </a>
+            </th>
+            <th>
+              <a 
+              {% if request.GET.sort %}
+                {% if request.GET.sort == 'points_balance' %}
+                  {% if request.GET.desc == 'true' %}
+                    href="?sort=points_balance"
+                  {% else %}
+                    href="?sort=points_balance&desc=true"
+                  {% endif %}
+                {% else %}
+                  href="?sort=points_balance"
+                {% endif %}
+              {% else %}
+                href="?sort=points_balance"
+              {% endif %}
+              >
+              <h4 id="points-balance">Points Balance</h4>
+              <div class="tpb">{{ tpb | intcomma }}</div>
+              {% if request.GET.sort %}
+                {% if request.GET.sort == 'points_balance' %}
+                  {% if request.GET.desc == 'true' %}
+                    <div class="fas fa-sort-down"></div>
+                  {% else %}
+                    <div class="fas fa-sort-up"></div>
+                  {% endif %}
+                {% else %}
+                  <div class="fas fa-sort"></div>
+                {% endif %}
+              {% else %}
+                <div class="fas fa-sort"></div>
+              {% endif %}
+              </a>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if attendees %}
+            {% for attendee in attendees %}
+            <tr>
+              <td>
+                {% if attendee.present %}
+                  <div class="status-present">{{ attendee.present|yesno:"Present, Absent" }}</div>
+                {% else %}
+                  <div class="status-absent">{{ attendee.present|yesno:"Present, Absent" }}</div>
+                {% endif %}
+              </td>
+              <td>{{ attendee.id }}</td>
+              <td><a href="{% url 'attendees:details' attendee.id %}">{{ attendee.last_name }}, {{ attendee.first_name }}</a></td>
+              <td>{{ attendee.timestamp | date:"m/d/Y - g:ia" }}</td>
+              <td>{{ attendee.points_earned }}</td>
+              <td>{{ attendee.points_redeemed }}</td>
+              <td>{{ attendee.points_balance }}</td>
+            </tr>
+            {% endfor %}
+          {% else %}
+            <tr rowspan="4">No Attendees Registered</p>
+          {% endif %}
+        </tbody>
+      </table>
+      {% include 'attendees/partials/_pagination.html' %}
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block javascript %}
+  <script src="{% static 'attendees/js/overview.js' %} "></script>
+  <script src="{% static 'attendees/js/sidenav.js' %} "></script>
+{% endblock %}

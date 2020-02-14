@@ -1,0 +1,60 @@
+{% if attendees.has_other_pages %}
+  <nav id="attendees-pagination" class="mb-4">
+    <ul class="pagination">
+      {% if attendees.number > 1 %}
+        <li class="page-item">
+        <a class="page-link" href="?page=1">First</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled">
+        <span class="page-link">First</span>
+        </li>
+      {% endif %}
+
+      {% if attendees.has_previous %}
+      <li class="page-item">
+        <a href="?page={{ attendees.previous_page_number }}">&laquo;</a>
+      </li>
+      {% else %}
+      <li class="page-item disabled">
+        <span>&laquo;</span>
+      </li>
+      {% endif %}
+
+      {% for page_num in attendees.paginator.page_range %}
+        {% if attendees.number == page_num %}
+          <li class="page-item active">
+          <span>
+            {{ page_num }}
+            <span class="sr-only">(current)</span>
+          </span>
+          </li>
+        {% elif page_num > attendees.number|add:'-6' and page_num < attendees.number|add:'6' %}
+          <li class="page-item">
+            <a href="?page={{ page_num }}">{{ page_num }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+
+      {% if attendees.has_next %}
+      <li class="page-item">
+        <a href="?page={{ attendees.next_page_number }}">&raquo;</a>
+      </li>
+      {% else %}
+      <li class="page-item disabled">
+        <span>&raquo;</span>
+      </li>
+      {% endif %}
+      
+      {% if attendees.number != attendees.paginator.num_pages %}
+      <li class="page-item">
+        <a href="?page={{ attendees.paginator.num_pages }}">Last</a>
+      </li>
+      {% else %}
+      <li class="page-item disabled">
+        <span>Last</span>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+{% endif %}

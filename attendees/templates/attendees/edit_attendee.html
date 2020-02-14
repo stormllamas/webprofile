@@ -1,0 +1,23 @@
+{% extends 'attendees/layout.html' %}
+
+{% load static %}
+{% block title %}Edit Attendee{% endblock %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="{% url 'attendees:index' %}">Attendees</a></li>
+<li class="breadcrumb-item active">Update Attendee</li>
+{% endblock %}
+
+{% block content %}
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {% include 'attendees/includes/form.html' %}
+        <button class="btn btn-success" type="submit">Save changes</button>
+        <a href="{% url 'attendees:index' %}" class="btn btn-outline-secondary" role="button">Cancel</a>
+    </form>
+
+{% if upload_success %}
+    <h4 style="color:limegreen">{{upload_success}}</h4>
+{% endif %}
+
+{% endblock %}

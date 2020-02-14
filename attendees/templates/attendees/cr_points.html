@@ -1,0 +1,32 @@
+{% extends 'attendees/layout.html' %}
+
+{% load static %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active"><a href="{% url 'attendees:index' %}">Attendees</a></li>
+  <li class="breadcrumb-item active">{{ breadcrumb }}</li>
+{% endblock %}
+
+{% block content %}
+  <section id="main-feed">
+    <div id="cr_points" class="feed-content">
+      {% if order %}
+        <h3>{{ order }}</h3>
+      {% endif %}
+      <form method="post" novalidate>
+        {% csrf_token %}
+        {% include 'attendees/includes/form.html' %}
+        <button class="btn-green" type="submit">Scan</button>
+      </form>
+    </div>
+  </section>
+
+  {% if upload_success %}
+    <h4 style="color:limegreen">{{upload_success}}</h4>
+  {% endif %}
+{% endblock %}
+
+
+{% block javascript %}
+<script src="{% static 'attendees/js/sidenav.js' %} "></script>
+{% endblock %}

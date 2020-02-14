@@ -1,0 +1,25 @@
+{% extends 'attendees/layout.html' %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item active"><a href="{% url 'attendees:index' %}">Attendees</a></li>
+    <li class="breadcrumb-item active">Upload Contacts</li>
+{% endblock %}
+
+{% block message %}
+    <!-- Top Bar -->
+    {% include 'attendees/partials/_alerts.html' %}
+{% endblock %}
+
+{% block content %}
+
+
+<div style="text-align: center">
+    <p style="text-align:center; margin: auto; width:auto; color:rgb(7, 163, 155)">Upload CSV Files Only</p>
+    <small style= "text-align:center" class="text-muted d-block">Order of the CSV should be first_name, last_name</small>
+    <form method="post" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        {% include 'attendees/includes/form.html' %}
+        <br><br><button class="btn btn-success mb-5" type="submit">Upload File</button>
+    </form>
+</div>
+{% endblock %}

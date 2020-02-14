@@ -1,0 +1,114 @@
+{% extends 'attendees/layout.html' %}
+
+{% load humanize static %}
+
+
+{% block navbar %}
+
+  <nav id="main-nav" class="navbar open sticky">
+    <div class="nav-content">
+      <a class="title" href="{% url 'attendees:overview' %}">
+        <img src="/static/attendees/img/tech_llama_logo.png" class="nav-logo" alt="logo">
+        <h1>Tech Llama</h1>
+      </a>
+      <div class="authentication">
+        <ul class="main-nav-list">
+          {% if user.is_authenticated %}
+            <li
+            {% if 'dashboard' in request.path %}
+              class="main-nav-item active"
+            {% else %}
+              class="main-nav-item"
+            {% endif %}
+            >
+              <a class="nav-link-authenticated" href="{% url 'my_account' %}">Welcome {{ user.username }}</a>
+            </li>
+            <li class="main-nav-item">
+              <a href="{% url 'logout' %}" class="nav-link-authenticated"><i class="fas fa-sign-out-alt"></i> Logout </a>
+            </li>
+          {% else %}
+            <li
+            {% if 'register' in request.path %}
+              class="main-nav-item active"
+            {% else %}
+              class="main-nav-item"
+            {% endif %}
+            >
+              <a class="nav-link btn-blue" href="#">
+                <i class="fas fa-user-plus"></i> Signup</a>
+            </li>
+            <li
+            {% if 'login' in request.path %}
+              class="main-nav-item active mr-3"
+            {% else %}
+              class="main-nav-item mr-3"
+            {% endif %}
+            >
+              <a class="nav-link btn-blue-outline" href="#">
+                <i class="fas fa-sign-in-alt"></i>Login
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+      </div>
+  </nav>
+
+{% endblock %}
+
+{% block content %}
+<header id="home-header">
+  <div class="header-content">
+    <h1 class="header-title">Rewards <span class="main-color">Points Tracker</span></h1>
+    {% if user.is_authenticated %}
+      <a href="{% url 'attendees:overview' %}" class="btn-green btn-large">Let's Go</a>
+    {% else %}
+      <a href="#" class="btn-blue btn-large">Log in to Start</a>
+    {% endif %}
+  </div>
+</header>
+<section id="main-feed" class="open">
+  <div class="feed-content">
+    <div id="home-text" class="container">
+      <h2>Easy to Use</h2>
+      <h3>Upload contacts, generate codes, and manage points.</h3>
+      <p>To start you'll need to <span><a href="#" class="main-color">signup</a></span>,
+        now create a .csv file with two columns named as "first_name", "last_name" and fill in the rows with default contacts.
+        After upload is finished, proceed to generate the QR codes in the Generate QR page. This will provide a new QR list in the QR page.
+        Lastly, use the QR codes accordingly and use the overview page to manage points.
+      </p>
+      {% if user.is_authenticated %}
+        <a href="{% url 'attendees:overview' %}" class="btn-green btn-large">Let's Go</a>
+      {% else %}
+        <a href="#" class="btn-blue btn-large">Log in to Start</a>
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}
+
+
+{% block footer %}
+  <footer id="main-footer" class="bg-primary open">
+    <div class="container">
+      <div class="footer-content">
+      <div>
+        <a href="#" class="socials"><i class="fab fa-twitter fa-1x"></i></a>
+        <a href="#" class="socials"><i class="fab fa-instagram fa-1x"></i></a>
+      </div>
+      <div>
+        <p>Copyright &copy;<span class="year"></span> Tech Llama</p>
+      </div>
+      <div>
+        <a href="#" class="btn-main">send a message</a>
+      </div>
+      </div>
+    </div>
+  </footer>
+{% endblock %}
+
+{% block javascript %}
+  <script src="{% static 'attendees/js/partials.js' %} "></script>
+{% endblock %}

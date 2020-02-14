@@ -1,0 +1,64 @@
+{% extends 'attendees/layout.html' %}
+
+{% load humanize %}
+
+{% block title %} {{ block.super }} - {{attendee.first_name}} {{attendee.last_name}} {% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'attendees:index' %}">Attendees</a></li>
+    <li class="breadcrumb-item active">{{attendee.first_name}} {{attendee.last_name}}</li>
+{% endblock %}
+
+{% block content %}
+<h2 class="text-center mb-lg-4">{{attendee.first_name}} {{attendee.last_name}}'s Activity Log</h2>
+<div class="text-lg-right mb-lg-4">
+    <a href="{% url 'attendees:edit_attendee' attendee.id %}" class="btn btn-success" role="button">Edit Attendee's Name</a>
+</div>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th><h4>Status</h4></th>
+        <th><h4>ID</h4></th>
+        <th><h4>Full Name</h4></th>
+        <th><h4>Latest Timestamp</h4></th>
+
+        <a href="?sort=earned">
+          <th>
+            <h4 id="points-earned">Points Earned</h4>
+            <div class="tpe">{{ tpe | intcomma }}</div>
+          </th>
+        </a>
+        <th>
+          <h4 id="points-redeemed">Points Redeemed</h4>
+          <div class="tpr">{{ tpr | intcomma }}</div>
+        </th>
+        <th>
+          <h4 id="points-balance">Points Balance</h4>
+          <div class="tpb">{{ tpb | intcomma }}</div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+        {% if attendee.activities >= 1 %}
+            {% for log in attendee.activities_ordered %}
+            <tr>
+                <td>{{attendee.first_name}} {{attendee.last_name}}</td>
+                <td>{{log.time_log}}</td>
+                {% if log.points_claim > 0 %}
+                    <td class="text-center text-primary">{{log.points_claim}}</td>
+                {% elif log.points_redeem > 0 %}
+                    <td class="text-center text-danger " >{{log.points_redeem}}</td>
+                {% else %}
+                    <td></td>
+                {% endif %}
+                <td class="text-center">{{log.total_points_earned}}</td>
+                <td class="text-center">{{log.total_points_redeemed}}</td>
+                <td class="text-center">{{log.total_points_balance}}</td>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <p>No activity yet</p>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}
