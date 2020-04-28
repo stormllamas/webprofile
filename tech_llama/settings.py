@@ -143,12 +143,6 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
 
-try:
-    from .local_settings import *
-except ImportError:
-    pass
-
-
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 LOGOUT_REDIRECT_URL = '/'
@@ -156,3 +150,9 @@ LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/'
 
 LOGIN_URL = 'login'
+
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
