@@ -15,9 +15,9 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
-urlpatterns += [
-    re_path(r'^(?P<path>.*)/$', views.FrontendRenderView.as_view(), name='notfound')
-]
+# urlpatterns += [
+#     re_path(r'^(?P<path>.*)/$', views.FrontendRenderView.as_view(), name='notfound')
+# ]
 
 # handler404 = 'myapps.views.notfound'
 # handler500 = 'myapps.views.notfound'
