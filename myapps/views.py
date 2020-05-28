@@ -1,56 +1,49 @@
+# Views
 from django.views.generic import View
+from django.views.generic.base import TemplateView
+from django.views.generic.edit import FormView
+
 
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .forms import ContactForm
 from django.contrib import messages
-from .models import Profile
+from django.core.mail import send_mail
 
-def index(request):
-    profile = get_object_or_404(Profile, pk=1)
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        print('------------------------request is post------------------------')
-        if form.is_valid():
-            contact = form.save(commit=False)
 
-            messages.success(request, 'Message Sent!')
-            return redirect(reverse('index'))
+class Index(TemplateView):
+  template_name = 'myapps/index.html'
 
-    else:
-        form = ContactForm()
+  # def get_context_data(self, **kwargs):
+  #   send_mail(
+  #     'Welcome to Tech Llama',
+  #     'My name is Storm Llamas and I can help you build your website',
+  #     'me@stormllamas.tech',
+  #     ['storm_sia_llamas@yahoo.com'],
+  #     fail_silently=False
+  #   )
+  #   return super().get_context_data(**kwargs)
 
-    context = {
-        'form': form,
-        'resume': profile.resume
-    }
 
-    return render(request, 'myapps/index.html', context)
+class About(TemplateView):
+  template_name = 'myapps/about.html'
 
-def about(request):
-    profile = get_object_or_404(Profile, pk=1)
-    return render (request, 'myapps/about.html', {'resume': profile.resume})
 
-def contact(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            contact = form.save()
+class ContactView(FormView):
+  template_name = 'myapps/contact.html'
+  form_class = ContactForm
 
-            messages.success(request, 'Message Sent!')
-            return redirect(reverse('contact'))
+  def form_valid(self, form):
+    form.save()
+    return super().form_valid(form)
 
-        else:
-            messages.error(request, 'Please fill in the required fields')
-
-    else:
-        form = ContactForm()
-
-    return render (request, 'myapps/contact.html', {'form':form})
-
-# def notfound(request, Exception=None):
-#     return render (request, 'myapps/notfound.html', {})
-
+  def form_invalid(self, form):
+    messages.error(self.request, 'Please fill in the required fields')
+    return super().form_invalid(form)
+  
+  def get_success_url(self):
+    messages.success(self.request, 'Message Sent!')
+    return reverse('contact')
 
 class FrontendRenderView(View):
     def get(self, request, *args, **kwargs):
-        return render (request, 'myapps/notfound.html', {})
+        return render(request, 'myapps/notfound.html', {})

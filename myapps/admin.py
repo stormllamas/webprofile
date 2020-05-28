@@ -1,6 +1,7 @@
 from django.contrib import admin
+from solo.admin import SingletonModelAdmin
 
-from .models import Contact, Profile
+from .models import Contact, SiteConfiguration
 
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('name', 'subject', 'message', 'contact_date')
@@ -11,4 +12,6 @@ class ContactAdmin(admin.ModelAdmin):
 
 admin.site.register(Contact, ContactAdmin)
 
-admin.site.register(Profile)
+admin.site.register(SiteConfiguration, SingletonModelAdmin)
+# config = SiteConfiguration.get_solo()
+config = SiteConfiguration.objects.get()

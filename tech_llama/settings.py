@@ -32,9 +32,10 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'widget_tweaks',
+    'django.contrib.humanize',
 
     'myapps.apps.MyappsConfig',
-    'django.contrib.humanize',
+    'solo.apps.SoloAppConfig',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -59,7 +60,7 @@ ROOT_URLCONF = 'tech_llama.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'templatetags')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,6 +69,11 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+
+            'libraries':{
+                'form_tags': 'templatetags.form_tags',
+                # 'math_tags': 'templatetags.math_tags',
+            }
         },
     },
 ]
@@ -127,9 +133,9 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'btre/static')
-# ]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'tech_llama/static')
+]
 
 # Media Folder Settings
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -142,15 +148,21 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 LOGOUT_REDIRECT_URL = '/'
 
 LOGIN_REDIRECT_URL = '/'
 
 LOGIN_URL = 'login'
 
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_HOST_USER = 'me@stormllamas.tech'
+EMAIL_HOST_PASSWORD = 'zkwxLxDXHIu0'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'Tech Llama <noreply@stormllamas.tech>'
 
+#Production settings
 try:
     from .local_settings import *
 except ImportError:

@@ -1,15 +1,18 @@
 {% load static %}
 
+{% load widget_tweaks static solo_tags %}
+{% get_solo 'myapps.SiteConfiguration' as site_config %}
+
 <nav id="main-nav">
   <div class="container nav-content">
     <div class="logo">
-      <img src="{% static 'myapps/img/tech_llama_logo.png' %}" alt="Tech Llama Logo">
+      <img src="{% static 'img/tech_llama_logo.png' %}" alt="Tech Llama Logo">
       <h1>Storm Llamas</h1>
     </div>
     <div class="navbar-links">
       <div class="nav-items">
         <a href="{% url 'index' %}" {% if '/' == request.path %} class="current" {% endif %}> Home </a>
-        <a href="{{ resume.url }}" target="_blank"> Resume </a>
+        <a href="{{ site_config.resume.url }}" target="_blank"> Resume </a>
         <a href="#" > Work </a>
         <a href="{% url 'about' %}" {% if '/about/' == request.path %} class="current" {% endif %}> About </a>
       </div>
@@ -19,7 +22,7 @@
         <div class="menu">
           <div>
             <a href="{% url 'index' %}" {% if '/' == request.path %} class="current" {% endif %}> Home </a>
-            <a href="{{ resume.url }}" target="_blank"> Resume </a>
+            <a href="{{ site_config.resume.url }}" target="_blank"> Resume </a>
             <a href="#"> Work </a>
             <a href="{% url 'about' %}"  {% if '/about/' == request.path %} class="current" {% endif %}> About </a>
           </div>

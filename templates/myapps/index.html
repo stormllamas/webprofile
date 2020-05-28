@@ -1,46 +1,16 @@
 {% extends 'myapps/layout.html' %}
 
-{% load widget_tweaks %}
-
-{% load static %}
-
-
-{% block navbar %}
-<nav id="main-nav">
-  <div class="container nav-content">
-    <div class="logo">
-      <img src="{% static 'myapps/img/tech_llama_logo.png' %}" alt="Tech Llama Logo">
-      <h1>Storm Llamas</h1>
-    </div>
-    <div class="navbar-links">
-      <div class="nav-items">
-        <a href="{% url 'index' %}" class="current"> Home </a>
-        <a href="{{ resume.url }}" target="_blank"> Resume </a>
-        <a href="#"> Work </a>
-        <a href="{% url 'about' %}"> About </a>
-      </div>
-      <div class="nav-items-dropdown">
-        <input type="checkbox" class="toggler">
-        <div class="hamburger"><div></div></div>
-        <div class="menu">
-          <div>
-            <a href="{% url 'index' %}" class="current"> Home </a>
-            <a href="{{ resume.url }}" target="_blank"> Resume </a>
-            <a href="#"> Work </a>
-            <a href="{% url 'about' %}"> About </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</nav>
-{% endblock %}
-
+{% load widget_tweaks static %}
 
 {% block content %}
   <header id="header-home">
-    <div class="main-header">
-      <div class="header-text">
+    <div class="main-header row">
+      <div class="header-image col">
+        <div class="image-container col">
+          <div class="image"></div>
+        </div>
+      </div>
+      <div class="header-text col middle center">
         <h2>Hi I'm Storm</h2>
         <h4>The <span
           class="txt-type"
@@ -87,14 +57,14 @@
             </div>
             <div>
               <h3>Languages I Speak</h3>
-              <p>Python<br>Django<br>HTML<br>CSS<br>Sass<br>SQL</p>
+              <p>Python<br>Django<br>JavaScript<br>Angular<br>HTML/SCSS<br>SQL</p>
             </div>
           </div>
 
           <div>
             <div>
               <i class="fas fa-laptop fa-4x"></i>
-              <h3>Other Experience</h3>
+              <h3>Experience</h3>
               <p>I’ve worked for a while on projects
                   involving funnel hacking,
                   SEO for content, Email Optimization,
@@ -102,7 +72,7 @@
             </div>
             <div>
               <h3>Fields</h3>
-              <p>Funnel hacking<br>SEO for content<br>Email Optimization<br>Data Mining</p>
+              <p>Over 10,000 hrs of programming<br>SEO for content<br>Email Optimization<br>Data Mining<br>Funnel Hacking</p>
             </div>
           </div>
         </div>
@@ -143,4 +113,4 @@
   </div>
 {% endblock %}
 
-{% block scripts %}<script src="{% static 'myapps/js/typewriter.js' %}"></script>{% endblock %}
+{% block scripts %}<script src="{% static 'js/typewriter.js' %}"></script>{% endblock %}

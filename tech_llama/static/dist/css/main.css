@@ -112,6 +112,48 @@ hr {
   background: #fff;
   border-radius: 10px; }
 
+.row {
+  display: flex;
+  flex-direction: row; }
+  .row.center {
+    justify-items: center;
+    justify-content: center; }
+  .row.middle {
+    align-items: center;
+    align-content: center; }
+  .row.start {
+    justify-items: flex-start;
+    justify-content: flex-start; }
+  .row.end {
+    justify-items: flex-end;
+    justify-content: flex-end; }
+
+.col {
+  display: flex;
+  flex-direction: column; }
+  .col.center {
+    align-items: center;
+    align-content: center; }
+  .col.middle {
+    justify-items: center;
+    justify-content: center; }
+  .col.start {
+    align-items: flex-start;
+    align-content: flex-start; }
+  .col.end {
+    align-items: flex-end;
+    align-content: flex-end; }
+
+.flex {
+  display: flex; }
+
+.wrap {
+  display: flex;
+  flex-wrap: wrap; }
+
+.text-center {
+  text-align: center; }
+
 .form-group {
   margin-bottom: 1rem; }
 
@@ -226,7 +268,8 @@ body {
   font-family: 'Quicksand', sans-serif;
   line-height: 1.6;
   background: #fff;
-  color: #333; }
+  color: #333;
+  overflow-x: hidden; }
 
 P {
   font-size: 16px; }
@@ -247,7 +290,7 @@ h3 {
   font-size: 22px; }
 
 h4 {
-  font-size: 55px; }
+  font-size: 45px; }
 
 ul {
   list-style: none; }
@@ -427,27 +470,28 @@ ul {
   height: calc(100vh - 67.6px); }
   #header-home .main-header {
     height: 100%;
-    position: relative;
-    overflow: hidden; }
-    #header-home .main-header:before {
-      content: '';
-      position: absolute;
-      display: block;
-      background: url("/static/myapps/img/storm4web.png") no-repeat bottom left/contain;
-      bottom: 0;
-      left: 15%;
-      width: 85%;
-      height: 85%;
-      z-index: -1; }
+    align-content: space-between; }
+    #header-home .main-header .header-image {
+      width: 50%;
+      height: 100%;
+      justify-content: flex-end; }
+      #header-home .main-header .header-image .image-container {
+        height: 85%;
+        width: 100%;
+        align-items: flex-end; }
+        #header-home .main-header .header-image .image-container .image {
+          height: 100%;
+          width: 100%;
+          background: url("/static/img/storm4web.png") no-repeat bottom right/contain; }
     #header-home .main-header .header-text {
       text-align: center;
-      padding-left: 40%;
-      padding-top: 25vh; }
+      width: 50%; }
       #header-home .main-header .header-text h4 {
         font-family: 'Varela Round', sans-serif;
         margin-bottom: 60px; }
       #header-home .main-header .header-text a {
-        font-family: 'Varela', sans-serif; }
+        border-radius: 5px;
+        width: 45%; }
 
 #things-i-do-title {
   text-align: center;
@@ -566,40 +610,42 @@ ul {
       text-align: center; }
 
 #timeline {
-  margin-top: 5rem; }
+  margin-top: 3rem; }
+  #timeline .bottom-line-primary {
+    display: none; }
   #timeline .timeline-start, #timeline .timeline-end {
-    width: 80px;
-    height: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
     background: #71cad2; }
   #timeline .timeline-start {
-    margin: 3rem auto 0 auto; }
+    margin: 2rem auto 0 auto; }
   #timeline .timeline-end {
-    margin: 0 auto 0 auto; }
+    margin: 0 auto; }
   #timeline ul li {
     position: relative;
     display: flex;
     width: 6px;
-    height: 200px;
+    height: 150px;
     margin: 0 auto;
-    align-items: center;
-    background: #71cad2; }
-    #timeline ul li.show .times {
-      transform: none !important;
-      visibility: visible;
-      opacity: 1; }
+    background: #71cad2;
+    align-items: center; }
     #timeline ul li .dots {
       position: absolute;
-      width: 70px;
-      border-top: 6px #71cad2 dotted; }
+      width: 40px;
+      border-top: 6px #71cad2 dotted;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.5s ease-in-out; }
     #timeline ul li .times {
       position: relative;
       display: flex;
       align-items: center;
       color: #333;
       padding: 1rem 0;
-      transition: all 0.5s ease-in-out;
       visibility: hidden;
-      opacity: 0; }
+      opacity: 0;
+      transition: all 0.5s ease-in-out; }
       #timeline ul li .times .timeline-date {
         display: flex;
         flex-direction: column;
@@ -618,42 +664,49 @@ ul {
           #timeline ul li .times .timeline-date div h3.year {
             font-size: 25px;
             margin-top: -10px; }
-      #timeline ul li .times .timeline-text {
-        left: 200px;
-        width: 300px;
-        display: flex;
-        flex-direction: column;
-        align-items: start; }
+    #timeline ul li.show .dots {
+      position: absolute;
+      width: 40px;
+      border-top: 6px #71cad2 dotted;
+      visibility: visible;
+      opacity: 1; }
+    #timeline ul li.show .times {
+      transform: translate(0, 0) !important;
+      visibility: visible;
+      opacity: 1; }
     #timeline ul li:nth-child(even) .dots {
       left: 12px; }
     #timeline ul li:nth-child(even) .times {
-      left: 88px;
+      left: 60px;
       transform: translate(200px, 0); }
       #timeline ul li:nth-child(even) .times .timeline-date {
         margin-right: 20px; }
       #timeline ul li:nth-child(even) .times .timeline-text {
-        left: 200px;
+        left: 172px;
         min-width: 300px;
         align-items: flex-start; }
     #timeline ul li:nth-child(odd) .dots {
-      left: -76px; }
+      left: -48px; }
     #timeline ul li:nth-child(odd) .times {
-      left: -492px;
+      left: -464px;
       transform: translate(-200px, 0); }
       #timeline ul li:nth-child(odd) .times .timeline-date {
         margin-left: 20px; }
       #timeline ul li:nth-child(odd) .times .timeline-text {
-        left: -284px;
         min-width: 300px;
-        align-items: flex-end;
         text-align: end; }
 
 @media (max-width: 1250px) {
-  #header-home .main-header:before {
-    background: url("/static/myapps/img/storm4web-tilt.png") no-repeat bottom left/contain;
-    left: 0; } }
+  #header-home .main-header .header-image {
+    width: 50%;
+    height: 100%;
+    justify-content: flex-end; }
+    #header-home .main-header .header-image .image-container .image {
+      height: 100%;
+      width: 100%;
+      background: url("/static/img/storm4web-tilt.png") no-repeat bottom left/contain; } }
 
-@media (max-width: 1150px) {
+@media (max-width: 1100px) {
   P {
     font-size: 16px; }
   a {
@@ -664,50 +717,47 @@ ul {
   h1 {
     font-size: 24px; }
   h2 {
-    font-size: 30px; }
-  h3 {
     font-size: 22px; }
-  h4 {
-    font-size: 45px; }
-  #header-home {
-    height: 50vh; }
-    #header-home .main-header:before {
-      background: url("/static/myapps/img/storm4web.png") no-repeat bottom left/contain;
-      left: 20%; }
-    #header-home .main-header .header-text {
-      padding-left: 45%;
-      padding-top: 15vh; }
-      #header-home .main-header .header-text h4 {
-        margin-bottom: 20px; } }
-
-@media (max-width: 900px) {
-  P {
-    font-size: 14px; }
-  a {
-    font-size: 14px;
-    text-decoration: none;
-    color: #333;
-    font-weight: 600; }
-  h1 {
-    font-size: 24px; }
-  h2 {
-    font-size: 30px; }
   h3 {
     font-size: 18px; }
   h4 {
     font-size: 35px; }
+  #header-home {
+    height: 50vh; }
+    #header-home .main-header {
+      align-items: center; }
+      #header-home .main-header .header-image {
+        width: 40%;
+        height: 100%;
+        justify-content: flex-end; }
+        #header-home .main-header .header-image .image-container .image {
+          height: 100%;
+          width: 100%;
+          background: url("/static/img/storm4web.png") no-repeat bottom right/contain; }
+      #header-home .main-header:before {
+        background: url("/static/img/storm4web.png") no-repeat bottom right/contain;
+        left: 20%; }
+      #header-home .main-header .header-text {
+        width: 60%; }
+        #header-home .main-header .header-text h4 {
+          margin-bottom: 20px; }
+        #header-home .main-header .header-text a {
+          width: 35%;
+          min-width: 200px; }
+  #things-i-do .content > div {
+    padding: 3rem 1rem 4rem 1rem; } }
+
+@media (max-width: 980px) {
   #main-nav .nav-content {
     align-items: flex-start; }
     #main-nav .nav-content .navbar-links .nav-items {
       display: none; }
     #main-nav .nav-content .navbar-links .nav-items-dropdown {
       display: flex; }
-  #header-home .main-header:before {
-    background: url("/static/myapps/img/storm4web-tilt.png") no-repeat bottom left/contain;
-    left: 0; }
-  #header-home .main-header .header-text {
-    padding-left: 40%;
-    padding-top: 15vh; }
+  #things-i-do .content > div {
+    padding: 2rem 1rem; }
+    #things-i-do .content > div div:first-child i {
+      font-size: 3em; }
   #about-me div.bg-light .container {
     flex-direction: column;
     justify-content: center; }
@@ -730,65 +780,126 @@ ul {
         background: #71cad2;
         height: 100%;
         color: #fff;
-        text-align: center; } }
+        text-align: center; }
+  #timeline .bottom-line-primary {
+    display: block; }
+  #timeline .timeline-start, #timeline .timeline-end {
+    display: none; }
+  #timeline ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    #timeline ul li {
+      height: unset;
+      margin: 0;
+      width: 100%;
+      background: none;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1rem; }
+      #timeline ul li .dots {
+        display: none; }
+      #timeline ul li .times {
+        max-width: 600px;
+        position: static; }
+        #timeline ul li .times .timeline-text {
+          min-width: 0 !important; }
+        #timeline ul li .times .timeline-date {
+          max-width: 100%; }
+      #timeline ul li:nth-child(even) .times .timeline-text {
+        padding-right: 100px; }
+      #timeline ul li:nth-child(odd) .times .timeline-text {
+        padding-left: 100px; } }
 
-@media (max-width: 700px) {
+@media (max-width: 720px) {
   .container {
-    padding: 0 1rem; }
+    padding: 0 0.5rem; }
   P {
     font-size: 14px; }
   a {
-    font-size: 14px;
+    font-size: 16px;
     text-decoration: none;
     color: #333;
     font-weight: 600; }
   h1 {
-    font-size: 16px; }
+    font-size: 18px; }
   h2 {
     font-size: 20px; }
   h3 {
-    font-size: 18px; }
+    font-size: 16px; }
   h4 {
-    font-size: 30px; }
-  #main-nav .nav-content .logo img {
-    margin-right: 1rem; }
+    font-size: 26px; }
   #header-home {
-    height: calc(100vh - 67.6px); }
-    #header-home .main-header:before {
-      height: 50%;
-      z-index: -1; }
-    #header-home .main-header .header-text {
-      padding: 4rem 0 0 0; }
-      #header-home .main-header .header-text h4 {
-        margin-bottom: 2rem; }
-  #things-i-do-title {
-    text-align: center;
-    color: #fff;
-    padding-bottom: 13rem; }
+    height: unset; }
+    #header-home .main-header {
+      height: 100%;
+      flex-direction: column;
+      margin-bottom: 4rem; }
+      #header-home .main-header .header-image {
+        width: 100%;
+        height: unset;
+        align-items: center;
+        padding: 2rem; }
+        #header-home .main-header .header-image .image-container {
+          height: 150px;
+          width: 150px;
+          border-radius: 50%;
+          border: 3px #71cad2 solid;
+          align-items: center;
+          justify-content: flex-end;
+          overflow: hidden;
+          padding-left: 1.5rem; }
+          #header-home .main-header .header-image .image-container .image {
+            height: 92.5%;
+            width: 92.5%;
+            background: url("/static/img/storm4web.png") no-repeat center center/contain; }
+      #header-home .main-header .header-text {
+        height: unset;
+        padding: 0 0.5rem;
+        width: 100%; }
+        #header-home .main-header .header-text a {
+          width: 175px; }
+  #things-i-do .container {
+    padding: 0 1rem; }
   #things-i-do .content {
     display: grid;
     grid-template-columns: 1fr;
-    text-align: center; }
+    text-align: center;
+    justify-items: center; }
     #things-i-do .content > div {
-      display: grid;
-      grid-template-rows: repeat(2, 1fr);
-      border-right: 2px rgba(233, 240, 243, 0.5) solid;
+      max-width: 400px;
+      padding: 2rem 1rem;
       border-bottom: 2px rgba(233, 240, 243, 0.5) solid;
-      padding: 4rem 2rem 2rem 2rem; }
+      border-right: none; }
       #things-i-do .content > div div:first-child i {
-        padding-bottom: 1rem; }
+        font-size: 3em; }
       #things-i-do .content > div div:last-child {
-        padding-top: 2rem; }
+        padding-top: 0.5rem; }
         #things-i-do .content > div div:last-child h3 {
           color: #71cad2; }
     #things-i-do .content > div:last-child {
-      border-right: none; }
-  #companies .companies {
-    display: flex;
-    justify-content: center; }
-    #companies .companies .companies-img {
-      max-width: 100px;
-      margin: auto 2rem auto 2rem; }
+      border-bottom: none; }
+  #main-nav .nav-content .logo img {
+    margin-right: 1rem; }
+  #things-i-do-title {
+    text-align: center;
+    color: #fff;
+    padding-bottom: 11rem;
+    padding-top: 1rem; }
+  #companies {
+    margin: 1rem 0; }
+    #companies .companies .logos {
+      margin: auto;
+      max-width: 650px;
+      display: grid;
+      grid-template-columns: unset;
+      grid-gap: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around; }
+      #companies .companies .logos .companies-img {
+        width: 35%;
+        margin-bottom: 2rem; }
   #main-footer {
     padding: 2rem 0; }
     #main-footer .footer-content {
@@ -847,4 +958,35 @@ ul {
         margin-top: 0.5rem; }
   #contact-info .container .contact-info-content {
     display: flex;
-    flex-direction: column; } }
+    flex-direction: column; }
+  #about-me div.bg-light .about-img {
+    width: 125px;
+    height: 125px;
+    margin-bottom: 1rem; }
+  #about-me div.bg-light .about-text {
+    line-height: 1.5rem; }
+  #timeline ul li .times .timeline-date {
+    height: 75px; }
+    #timeline ul li .times .timeline-date div {
+      display: flex;
+      text-align: center;
+      width: 75px;
+      flex-direction: column;
+      color: #fff; }
+      #timeline ul li .times .timeline-date div h3.month {
+        font-size: 16px; }
+      #timeline ul li .times .timeline-date div h3.year {
+        font-size: 20px;
+        margin-top: -10px; }
+  #timeline ul li .times .timeline-text {
+    line-height: 1.15rem; }
+    #timeline ul li .times .timeline-text p {
+      margin-top: 0.25rem; }
+  #timeline ul li:nth-child(even) .times .timeline-date {
+    margin-right: 10px; }
+  #timeline ul li:nth-child(even) .times .timeline-text {
+    padding-right: 0; }
+  #timeline ul li:nth-child(odd) .times .timeline-date {
+    margin-left: 10px; }
+  #timeline ul li:nth-child(odd) .times .timeline-text {
+    padding-left: 0; } }

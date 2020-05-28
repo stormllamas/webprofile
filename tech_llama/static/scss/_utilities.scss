@@ -148,3 +148,67 @@ hr {
   background: #fff;
   border-radius: 10px;
 }
+
+// Flexbox
+.row {
+  display: flex;
+  flex-direction: row;
+
+  &.center {
+    justify-items: center;
+    justify-content: center;
+  }
+
+  &.middle {
+    align-items: center;
+    align-content: center;
+  }
+
+  &.start {
+    justify-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  &.end {
+    justify-items: flex-end;
+    justify-content: flex-end;
+  }
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+
+  &.center {
+    align-items: center;
+    align-content: center;
+  }
+
+  &.middle {
+    justify-items: center;
+    justify-content: center;
+  }
+
+  &.start {
+    align-items: flex-start;
+    align-content: flex-start;
+  }
+
+  &.end {
+    align-items: flex-end;
+    align-content: flex-end;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.text-center {
+  text-align: center;
+}

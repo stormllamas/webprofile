@@ -1,0 +1,27 @@
+// Variables
+$main-color: #71cad2;
+$light-color: #f4f4f4;
+$overlay-color: rgba(32, 32, 32, 0.85);
+$storm-image: url('/static/img/storm4web.png') no-repeat bottom right / contain;
+$storm-image-center: url('/static/img/storm4web.png') no-repeat center center / contain;
+$storm-image-tilt: url('/static/img/storm4web-tilt.png') no-repeat bottom left / contain;
+
+
+// Animations
+@keyframes nav-animate {
+  0% {
+    width: 0%;
+  }
+
+  30% {
+    width: 0%;
+  }
+
+  65% {
+    width: 115%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
